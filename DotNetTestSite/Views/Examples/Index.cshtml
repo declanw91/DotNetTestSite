@@ -1,0 +1,128 @@
+﻿@{
+    ViewData["Title"] = "Examples";
+}
+<div class="container-fluid">
+    <h2 class="work boxShadow workTitle">My Work</h2>
+    <div id="breakoutGame" class="work row boxShadow">
+        <h3>Breakout Game</h3>
+        <p>
+            This project is my first attempt at making a game using JavaScript. I enjoy playing video games a lot and have always
+            wanted to give making one a go. I came across a tutorial by FreeCodeCamp that was an intro to game dev with JavaScript and thought
+            <a href="https://www.youtube.com/watch?v=3EMxBkqC4z0&list=WL&index=9&t=0s">this tutorial</a> would be a good opportunity to
+            finally attempt this. The game is a basic version of the brick breakout game that the tutorial covers building. This is a work in progress
+            as I have been slowly expanding the game logic to include some power ups (only has one so far) as the original tutorial does not cover how to build in powerups.
+        </p>
+        <p>Viewable here: <a>Breakout Game</a></p>
+    </div>
+    <div id="videoGameQuiz" class="work row boxShadow">
+        <h3>Video Game Quiz</h3>
+        <p>
+            This project is my first experience using the VueJS framework and is based on a tutorial that I was following
+            to learn the basic concepts and get some experience in using the framework. The questions are provided by
+            a third party API that returns the question, a list of possible answers and, of course, the correct answer.
+            The project has two main components, the first is the header component at the top of the page showing the logo, the number of questions answered
+            and the total correct answers and the second is the questionbox component which displays the question, the answers and handles the user's interaction
+            with it and the submit and next buttons. The project does need a few updates and I plan to
+            update it as I learn more about the framework.
+        </p>
+        <p>Viewable here: <a>Video Game Quiz</a></p>
+    </div>
+    <div id="userManager" class="work row boxShadow">
+        <h3>User Managerment Tool</h3>
+        <p>
+            This started off as a technical exercise for a interview that
+            I took as a way to learn more bootstrap and angular. It is a basic user managerment system with
+            the ability to add, delete and update user data. It needs to be expanded to check for duplicate users.
+            It uses a mix of jQuery, Angular and boostrap on the front end and the API that modifies the data is written in PHP.
+            The PHP section just uses a file to store the user data in a json file. It may eventually be updated to use a database
+            for storing user data as this would be better.
+        </p>
+        <p>Viewable here: <a>User Manger</a></p>
+    </div>
+    <div id="welding" class="work row boxShadow">
+        <h3> Welding Course Enrolment </h3>
+        <p>
+            This was an assessment at university and was my first experience with jQuery.
+            The task was to create a page that allowed users to select modules
+            for a welding course. The jQuery library is used to limit the selections
+            based on the rules for the course.
+        </p>
+        <p>Viewable here: <a>Welding Enrolment</a></p>
+    </div>
+    <div id="lastFM" class="work row boxShadow">
+        <h3>LastFM Feed</h3>
+        <p>
+            Another API based project using APIs from LastFM to fetch my last played
+            tracks and my top artists, albums and tracks. There there several ajax requests in the background that call
+            php scripts that get the data and return it as json. The front end uses angularJS to then display this information.
+            The dropdown then triggers a show/hide of templates in AngularJS to show each area.
+        </p>
+        <p>Viewable here: <a>LastFM</a></p>
+    </div>
+    <div id="blackjack" class="work row boxShadow">
+        <h3>Blackjack Game</h3>
+        <p>
+            This is a simple version of casino blackjack that is created using basic HTML, CSS and JavaScript. This started as
+            a technical test for an interview and grew from there to be a little more graphical. It still needs some work as I
+            want to improve it a little by using templating tools like MustacheJs but haven't put that part in yet.
+        </p>
+        <p>Viewable here <a href="Blackjack">Blackjack Game</a></p>
+    </div>
+    <!--<div id="twitterFeed" class="work row boxShadow">
+        <h3>Twitter Feed</h3>
+        <p>Been looking into different APIs and started to experiment
+            with them. This page uses the twitter API to fetch my tweets
+            and displays them on this website. I have recently updated this to use
+          angularJS. There is a PHP file that fetches the JSON data from the twitter API
+        and then uses angular to process this response and create the HTML displayed</p>
+        <p>Viewable here <a href="TwitterApp">Tweets</a></p>
+    </div>-->
+    <div id="angularMovieApp" class="work row boxShadow">
+        <h3>Movie Search App (Angular version)</h3>
+        <p>
+            This is my first real angular project and it is a one page application
+            so there is no page reloading. It uses an API fom TheMovieDB on the back end
+            to make a request for data after the user types in their search and submits, the angular then processes the JSON response and then
+            uses it to build HTML to show on the page.
+        </p>
+        <p>Viewable here: <a>Movie Search</a></p>
+    </div>
+    <div id="slideshow" class="work row boxShadow">
+        <h3>Picture Slideshow</h3>
+        <p>
+            This uses a plugin for jQuery called bxslider.
+            It creates a slide show of images with controls for scrolling through each of them. I learnt about this while working at a previous
+            job as I had to set it up for several sites that wanted to have product carousels on some of their pages. It meant I had to
+            research the plugin and the available options to set it up for each client. The slideshow is showing a few random xbox screenshots.
+        </p>
+        <p>Viewable here: <a>Picture Slideshow</a></p>
+    </div>
+    <div id="wineStoreAngular" class="work row boxShadow">
+        <h3>Wine Store Angular</h3>
+        <p>
+            This is an angular version of my original php based wine store (see the example below this one to see the original). It still uses some PHP and MySQL
+            to fetch the wine data from the database and then convert it into json. The angular part takes over from there as the site uses angular to display
+            the data and control all of the requried functionality needed to make a newer, more shiny version of my store.
+        </p>
+        <p>Viewable here: <a>Wine Store Angular</a></p>
+    </div>
+    <div id="wineStorePhp" class="work row boxShadow">
+        <h3>Wine Store PHP</h3>
+        <p>
+            My first large PHP project. The task was to create a store that sold wine and create an online storefront for it. Users have their own
+            shopping cart to keep track of their current purchases. The project uses PHP, MySQL, HTML, CSS and PHP Sessions.
+            It uses a PDO object to access the database of wines.
+        </p>
+        <p>Viewable here: <a>Wine Store PHP</a></p>
+    </div>
+    <!--<div id="smartyBlog" class="work row boxShadow">
+      <h3>Smarty Blog</h3>
+      <p>
+        This project is a version of this sites home page that uses a php templating tool called Smarty which started as a technical test for an interview. It pulls data from my blog using php and then will
+        use a smarty template to render the response. There are two files, the first is a normal php script that fetchs the data and then the second is a template file
+        where the html for the page is found. In here you define the HTML to use and the file contains a section (a foreach loop) that goes throug heach of the posts
+        returned and creates the html that is used to display each post. The main page of this site uses the same feed but uses angular instead to show the posts.
+      </p>
+        <p>Viewable here: <a href="SmartyBlog">Smarty Blog</a></p>
+    </div> -->
+</div>

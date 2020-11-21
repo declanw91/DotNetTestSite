@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div id="aboutWrapper" class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <img class="fullProfileImage" src="images/FullProfile.png" alt="FullProfile" title="fullProfile" />
+        </div>
+        <div class="col-9 work boxShadow">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-center">About Me</h3>
+                    <p>
+                        Hi I'm Declan, a london based nerd with a passion for web development. After creating my first website at college
+                        I decided that I wanted to work in development, building products that people would use as it's great to see
+                        something you thought of in your head come to life.
+                    </p>
+                    <p>
+                        Development has taken me from working in e-commerce, to my first business trip to New Zealand, from working on websites to
+                        working on mobile apps used in the rail industry. I am always looking forward to where the job is going to take me next.
+                    </p>
+                    <p class="mb-0">Work links:</p>
+                    <ul class="workLinks list-unstyled">
+                        <li><span class="mr-1"><i class="fab fa-github"></i></span><a href="https://github.com/declanw91">Github</a></li>
+                        <li><span class="mr-1"><img src="images/favicon.ico" alt="personal site" /></span><a asp-page="/Index">Personal site</a></li>
+                    </ul>
+                    <p class="mt-2">
+                        Can also be found wandering around London looking for food markets to try out new foods or playing video games
+                        to help unwind.
+                    </p>
+                    <p class="mb-0">Social links:</p>
+                    <ul class="personalLinks list-unstyled">
+                        <li><span class="mr-1"><i class="fab fa-twitter"></i></span><a href="https://twitter.com/declanw47">Twitter</a></li>
+                        <li><span class="mr-1"><i class="fab fa-lastfm-square"></i></span><a href="https://www.last.fm/user/Dec147">LastFm</a></li>
+                        <li><span class="mr-1"><i class="fab fa-instagram"></i></span><a href="https://www.instagram.com/declanw47/">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row work boxShadow">
+        <div class="row mt-2">
+            <div class="col-6">
+                <h5>My Tweets</h5>
+                <div id="myTweets">
+
+                </div>
+            </div>
+            <div class="col-6">
+                <h5>My Recent Tracks</h5>
+                <div id="myTracks" class="row" data-ng-app="myTracks" data-ng-controller="myTracksController">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
