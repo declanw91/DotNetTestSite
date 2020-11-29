@@ -1,0 +1,1 @@
+var movieSearchApp = angular.module('movieSearch', []);

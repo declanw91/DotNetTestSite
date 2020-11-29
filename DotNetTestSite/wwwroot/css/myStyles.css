@@ -42,3 +42,22 @@
     text-align: center;
     width: 100%;
 }
+
+.movieResult {
+    margin-bottom: 10px;
+    background-color: #FFFFFF;
+}
+
+.movieResult img {
+    max-height: 210px;
+    margin: 5px;
+}
+
+.movieSearchIntro {
+    text-align: center;
+}
+
+#movieForm {
+    margin: 0 auto;
+    width: 37%;
+}

@@ -1,0 +1,11 @@
+﻿<div class="row movieResult boxShadow" data-ng-repeat="x in searchresults">
+    <span class="moviePoster">
+        <img src="http://image.tmdb.org/t/p/w185{{x.poster_path}}" alt="{{x.title}}" />
+    </span>
+    <div class="col-md-9">
+        <h3>{{x.title}}</h3>
+        <h4>Summary:</h4>
+        <p class="movieSummary">{{x.overview}}</p>
+        <p class="releaseDate">Release date: {{x.release_date}}</p>
+    </div>
+</div>

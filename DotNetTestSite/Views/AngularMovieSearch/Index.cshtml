@@ -1,0 +1,14 @@
+﻿<div class="container-fluid">
+    <div id="movieSearchWrapper" class="container-fluid" data-ng-app="movieSearch" data-ng-controller="movieSearchController">
+        <h2 class="movieSearchIntro">The MovieDB Search</h2>
+        <p class="movieSearchIntro">Please enter a movie title below and press submit to search our database:</p>
+        <div id="movieForm" class="mb-2">
+            <form class="form-inline mr-auto">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input name="query" data-ng-model="query" type="text" placeholder="Search" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-primary btn-rounded btn-sm my-0" type="submit" data-ng-click="submitMovieSearch($event);">Search</button>
+            </form>
+        </div>
+        <div data-ng-include="templateURL"></div>
+    </div>
+</div>
