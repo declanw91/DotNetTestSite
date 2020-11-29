@@ -1,0 +1,22 @@
+﻿@model IEnumerable<BlogPost>
+@{
+    ViewData["Title"] = "Blog";
+}
+
+<div id="BlogPostsWrapper" class="container-fluid">
+    <div id="blogPosts">
+        @foreach (var blog in Model)
+        {
+            <div class="blogPost row">
+                <div class="blogTitle container">
+                    <h2>@blog.Title</h2>
+                </div>
+                <div class="blogContent">
+                    @Html.Raw(blog.Content)
+                </div>
+                <div class="blogDate"><span>Posted at: </span><span>@blog.Published.ToString("dd/MM/yyyy HH:mm")</span></div>
+            </div>
+        }
+
+    </div>
+</div>

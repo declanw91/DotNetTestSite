@@ -1,4 +1,8 @@
-﻿.fullProfileImage {
+﻿body {
+    background-color: #dbdbdb;
+}
+
+.fullProfileImage {
     max-height: 420px;
 }
 
@@ -21,4 +25,20 @@
 .boxShadow {
     box-shadow: 5px 5px #000000;
     border-radius: 5px;
+}
+
+.blogPost {
+    background-color: #FFFFFF;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.blogTitle {
+    text-align: center;
+}
+
+.blogDate {
+    text-align: center;
+    width: 100%;
 }
