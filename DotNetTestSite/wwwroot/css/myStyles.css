@@ -61,3 +61,19 @@
     margin: 0 auto;
     width: 37%;
 }
+
+.cardImage {
+    width: 17%;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+
+#BlackjackWrapper h1, .options, #lastFmProfileTitle {
+    text-align: center;
+}
+
+#BlackjackWrapper #gamearea {
+    background: #FFFFFF;
+}

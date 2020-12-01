@@ -1,0 +1,39 @@
+﻿<div id="BlackjackWrapper" class="container-fluid">
+    <h1>Welcome to Blackjack</h1>
+    <div class="col-12 text-center">
+        <button id="startGame">Start New Game</button>
+    </div>
+    <div id="gamearea" class="col-12 mt-2" style="display: none;">
+        <div class="row">
+            <div class="dealerarea col-6">
+                <h1>Dealers Current Cards:</h1>
+                <div class="dealercards"></div>
+                <div class="totalarea">
+                    <h2>Dealer Total</h2>
+                    <div class="dealertotal"></div>
+                </div>
+            </div>
+            <div class="playerarea col-6">
+                <h1>Your Current Cards:</h1>
+                <div class="playercards"></div>
+                <div class="totalarea">
+                    <h2>Player Total</h2>
+                    <div class="playertotal"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row pb-1 mt-1">
+            <div class="col-6 text-right">
+                <button id="hit" type="button" class="btn btn-primary hitoption">Hit</button>
+            </div>
+            <div class="col-6">
+                <button id="stick" type="button" class="btn btn-primary stickoption">Stick</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="cardTemplate" type="x-tmpl-mustache">
+      {{#.}}
+        <img class="cardImage boxShadow" src="images/cards/{{name}}_of_{{suit}}.png"/>
+      {{/.}}
+</script>
