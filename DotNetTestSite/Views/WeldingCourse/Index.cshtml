@@ -1,0 +1,50 @@
+﻿<div id="WeldingCourseWrapper" class="container-fluid">
+    <div id="header" style="background-color: #FFFFFF; padding-left: 5px; padding-right: 5px;">
+        <h1> Welcome to the Module Selection Page</h1>
+    </div>
+    <div id="pageBody" style="background-color: #FFFFFF; padding-left: 5px; padding-right: 5px;">
+        <p>
+            Please use the page below to select the modules that you wish to study during this course.
+            The page will update to reflect the choices you make.
+        </p>
+        <p>
+            You will only be able to choose modules that are in the same area that you are interested in. <br />
+            Also if you have no welding experience you will be required to take the safety and intro modules.
+        </p>
+        <div id="userSelections">
+            <h3>Please select the type of modules you are interested in:</h3>
+            <select id="userMod">
+                <option selected="selected" value=" "> </option>
+                <option value="Any">Any</option>
+                <option value="ARC">ARC </option>
+                <option value="MIG">MIG</option>
+                <option value="GAS">GAS</option>
+            </select>
+            <br />
+            <h3>Do you have any past welding experience </h3>
+            <select id="userExp">
+                <option selected="selected" value=" "> </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <form>
+            <table id="modules" border="3" class="table mt-2">
+                <tr id="colHead"><td>Select</td><td>Code</td><td>Type</td><td>Level</td><td>Description</td></tr>
+                <tr class="ARC Safe"><td><input type="checkbox" name="modOpt[]" value="AS" /></td><td>AS</td><td>ARC</td><td>Safety</td><td>Arc welding safety</td></tr>
+                <tr class="ARC Intro"><td><input type="checkbox" name="modOpt[]" value="A1" /></td><td>A1</td><td>ARC</td><td>Intro</td><td>Bead control and simple but welds in mild steel</td></tr>
+                <tr class="ARC Adv"><td><input type="checkbox" name="modOpt[]" value="A2" /></td><td>A2</td><td>ARC</td><td>Advanced</td><td>Vertical welding</td></tr>
+                <tr class="ARC Adv"><td><input type="checkbox" name="modOpt[]" value="A3" /></td><td>A3</td><td>ARC</td><td>Advanced</td><td>Specialised electrodes</td></tr>
+                <tr class="GAS Safe"><td><input type="checkbox" name="modOpt[]" value="GS" /></td><td>GS</td><td>Gas</td><td>Safety</td><td>The safe use of oxy-acetylene welding equipment</td></tr>
+                <tr class="GAS Intro"><td><input type="checkbox" name="modOpt[]" value="G1" /></td><td>G1</td><td>Gas</td><td>Intro</td><td>Bead control and simple butt welds</td></tr>
+                <tr class="GAS Adv"><td><input type="checkbox" name="modOpt[]" value="G2" /></td><td>G2</td><td>Gas</td><td>Advanced</td><td>Positional welds and weld testing</td></tr>
+                <tr class="GAS Adv"><td><input type="checkbox" name="modOpt[]" value="G3" /></td><td>G3</td><td>Gas</td><td>Advanced</td><td>Gas welding of aluminium</td></tr>
+                <tr class="MIG Safe"><td><input type="checkbox" name="modOpt[]" value="MS" /></td><td>MS</td><td>MIG</td><td>Safety</td><td>The safe use of MIG welding equipment</td></tr>
+                <tr class="MIG Intro"><td><input type="checkbox" name="modOpt[]" value="M1" /></td><td>M1</td><td>MIG</td><td>Intro</td><td>Bead control and simple horizontal welds of mild steel</td></tr>
+                <tr class="MIG Adv"><td><input type="checkbox" name="modOpt[]" value="M2" /></td><td>M2</td><td>MIG</td><td>Advanced</td><td>MIG auto-mobile body welding</td></tr>
+                <tr class="MIG Adv"><td><input type="checkbox" name="modOpt[]" value="M3" /></td><td>M3</td><td>MIG</td><td>Advanced</td><td>MIG welding aluminium and stainless steel</td></tr>
+            </table>
+            <input type="reset" name="reset" value="Reset" />
+        </form>
+    </div>
+</div>
