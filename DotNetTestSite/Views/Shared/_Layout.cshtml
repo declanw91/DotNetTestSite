@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - DotNetTestSite</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/jquery.bxslider.css"/>
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/myStyles.css" />
 </head>
@@ -44,15 +45,21 @@
 
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/531dfb0810.js" crossorigin="anonymous"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/angular.min.js"></script>
-    <script src="~/js/movieSearchApp.js"></script>
-    <script src="~/js/movieSearchController.js"></script>
-    <script src="~/js/mustache.min.js"></script>
-    <script src="~/js/blackjack.js"></script>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/angular.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://kit.fontawesome.com/531dfb0810.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/js/movieSearchApp.js"></script>
+    <script type="text/javascript" src="~/js/movieSearchController.js"></script>
+    <script type="text/javascript" src="~/js/mustache.min.js"></script>
+    <script type="text/javascript" src="~/js/blackjack.js"></script>
+    <script type="text/javascript" src="~/js/jquery.bxslider.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('#CarouselWrapper .slider').bxSlider();
+        });
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
