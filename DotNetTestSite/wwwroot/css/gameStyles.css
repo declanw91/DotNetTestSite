@@ -1,0 +1,58 @@
+#breakoutGame {
+  background-image: url('../images/game-icons-background.png');
+  background-repeat: repeat, repeat;
+}
+
+#breakoutGame #pageNav {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#breakoutGame #brand {
+  display: inline-block;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+#breakoutGame #brand span {
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+#breakoutGame #gameController {
+  vertical-align: middle;
+}
+
+#breakoutGame #gameArea {
+  width: 75%;
+  height: 75%;
+  border: 1px solid #000000;
+  background: #FFFFFF;
+}
+
+#breakoutGame #gameWrapper {
+  text-align: center;
+}
+
+#breakoutGame #pageHeaderWrapper, #breakoutGame #gameFooter {
+    background: rgba(247, 247, 247, 0.8);
+    text-align: center;
+}
+
+#breakoutGame img.gameImage {
+  display: none;
+}
+
+#breakoutGame #controlListWrapper, #breakoutGame #brickTypeWrapper {
+    margin: 0 auto;
+    width: 25%;
+}
+
+#breakoutGame #brickTypeWrapper {
+  width: 35%;
+}
+
+#breakoutGame #controlListWrapper ul, #breakoutGame #gameFooter ul {
+    text-align: left;
+}

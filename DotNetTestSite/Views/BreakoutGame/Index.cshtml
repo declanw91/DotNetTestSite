@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/css/gameStyles.css" rel="stylesheet">
+</head>
+<body id="breakoutGame">
+    <nav id="pageNav">
+        <a id="brand" href="#">
+            <img id="gameController" src="~/images/game-controller-icon.png" width="50" alt="game controller" title="game controller" />
+            <span>Brick Breakout</span>
+        </a>
+    </nav>
+    <div id="pageWrapper">
+        <img id="gameBall" class="gameImage" src="~/images/ball.png" alt="ball" title="ball" />
+        <img id="gameBrick" class="gameImage" src="~/images/brick.png" alt="brick" title="brick" />
+        <img id="gameBrickBlue" class="gameImage" src="~/images/blueBrick.png" alt="bluebrick" title="bluebrick" />
+        <img id="gameBrickGreen" class="gameImage" src="~/images/greenBrick.png" alt="greenbrick" title="greenbrick" />
+        <div id="pageHeaderWrapper">
+
+            <div id="welcomeMessageWrapper">
+                <p>Welcome to brick break out. Please see the control list below:</p>
+                <div id="controlListWrapper">
+                    <ul id="controlList">
+                        <li>Press space to start the game</li>
+                        <li>Press esc to pause/unpause the game</li>
+                        <li>Press the left arrow key to move the paddle left</li>
+                        <li>Press the right arrow key to move the paddle right</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="gameWrapper">
+            <canvas id="gameArea">
+            </canvas>
+        </div>
+        <div id="gameFooter">
+            <p>This game is a work in progress so please check back for updates! :)</p>
+            <p>Brick types:</p>
+            <div id="brickTypeWrapper">
+                <ul>
+                    <li>Orange bricks are standard bricks and have no effect on the game play</li>
+                    <li>Blue bricks will double the player paddle width (once per life)</li>
+                    <li>Coming soon: green bricks will double the speed of the ball (once per life)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/collisionDetection.js" type="text/javascript"></script>
+    <script src="~/js/playerPaddle.js" type="text/javascript"></script>
+    <script src="~/js/input.js" type="text/javascript"></script>
+    <script src="~/js/ball.js" type="text/javascript"></script>
+    <script src="~/js/brick.js" type="text/javascript"></script>
+    <script src="~/js/levels.js" type="text/javascript"></script>
+    <script src="~/js/gameManager.js" type="text/javascript"></script>
+    <script src="~/js/game.js" type="text/javascript"></script>
+</body>
