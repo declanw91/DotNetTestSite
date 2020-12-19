@@ -40,7 +40,7 @@
         </div>
     </div>
     <div class="row work boxShadow">
-        <div class="row mt-2">
+        <div class="row m-2">
             <div class="col-6">
                 <h5>My Tweets</h5>
                 <div id="myTweets">
@@ -49,8 +49,23 @@
             </div>
             <div class="col-6">
                 <h5>My Recent Tracks</h5>
-                <div id="myTracks" class="row" data-ng-app="myTracks" data-ng-controller="myTracksController">
-
+                <div id="myTracks" class="row">
+                    @foreach (var track in Model.RecentTracks)
+                    {
+                        if (!string.IsNullOrWhiteSpace(track.Name))
+                        {
+                            <div class="recentTrackWrapper row col-12 boxShadow">
+                                <div class="col-3">
+                                    <img src="@(track.Image)" alt="TrackImage" onerror="this.src='../images/404.png'" class="recentTrackImage" />
+                                </div>
+                                <div class="col-9">
+                                    <p>Track Name: @(track.Name)</p>
+                                    <p>Artist: @(track.Artist)</p>
+                                    <p>Album Name: @(track.Album)</p>
+                                </div>
+                            </div>
+                        }
+                    }
                 </div>
             </div>
         </div>

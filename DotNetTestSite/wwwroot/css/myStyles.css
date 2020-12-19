@@ -77,3 +77,15 @@
 #BlackjackWrapper #gamearea {
     background: #FFFFFF;
 }
+
+.recentTrackWrapper, .topAlbumWrapper, .topTrackWrapper, .topArtistWrapper {
+    background-color: #00cccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+}
+
+.recentTrackImage {
+    max-width: 100%;
+}

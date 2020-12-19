@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 
 namespace DotNetTestSite.Controllers
@@ -10,6 +9,11 @@ namespace DotNetTestSite.Controllers
     public class BlogController : Controller
     {
         public IActionResult Index()
+        {
+            List<BlogPost> blogPosts = GetBlogPosts();
+            return View(blogPosts);
+        }
+        private List<BlogPost> GetBlogPosts()
         {
             List<BlogPost> blogPosts = new List<BlogPost>();
 
@@ -30,11 +34,8 @@ namespace DotNetTestSite.Controllers
                     blogPosts.AddRange(Newtonsoft.Json.JsonConvert.DeserializeObject<List<BlogPost>>(readTaskResult));
                 }
             }
-            return View(blogPosts);
-        }
-        private void GetBlogPosts()
-        {
-            
+
+            return blogPosts;
         }
     }
 }

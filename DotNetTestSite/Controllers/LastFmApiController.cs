@@ -52,7 +52,7 @@ namespace DotNetTestSite.Controllers
                             {
                                 album = albumNode.Value;
                             }
-                            var imageNode = n.Elements().FirstOrDefault(n => n.Name.ToString().Contains("image"));
+                            var imageNode = n.Elements().LastOrDefault(n => n.Name.ToString().Contains("image"));
                             if(imageNode != null)
                             {
                                 image = imageNode.Value;
