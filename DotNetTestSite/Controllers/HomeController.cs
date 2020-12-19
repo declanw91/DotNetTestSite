@@ -20,7 +20,7 @@ namespace DotNetTestSite.Controllers
         public IActionResult Index()
         {
             var model = new HomeViewModel();
-            model.RecentTracks = GetRecentTracks();
+            model.RecentTracks.AddRange(GetRecentTracks());
             return View(model);
         }
 

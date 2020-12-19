@@ -6,5 +6,11 @@ namespace DotNetTestSite.Models
     {
         public List<TrackItem> RecentTracks { get; set; }
         public List<TrackItem> Tweets { get; set; }
+
+        public HomeViewModel()
+        {
+            RecentTracks = new List<TrackItem>();
+            Tweets = new List<TrackItem>();
+        }
     }
 }

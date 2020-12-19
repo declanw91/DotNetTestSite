@@ -44,7 +44,23 @@
             <div class="col-6">
                 <h5>My Tweets</h5>
                 <div id="myTweets">
+                    @foreach (var tweet in Model.Tweets)
+                    {
+                    <div class="tweet boxShadow">
+                        @(tweet.Text)
 
+                        @if (tweet.UrlAttached)
+                        {
+                            <a href="@(tweet.UrlAttached)">@(tweet.UrlAttached)</a>
+                        }
+                        <!--
+                            <div data-ng-repeat="y in x.extended_entities.media">
+                              <img src="{{y.media_url}}" alt="{{y.media_url}}"/>
+                            </div>
+                        -->
+                        <p>Posted on @(tweet.CreatedAt)</p>
+                    </div>
+                    }
                 </div>
             </div>
             <div class="col-6">
