@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.Http;
 
 namespace DotNetTestSite.Controllers
@@ -20,7 +21,10 @@ namespace DotNetTestSite.Controllers
         public IActionResult Index()
         {
             var model = new HomeViewModel();
-            model.RecentTracks.AddRange(GetRecentTracks());
+            var tracks = GetRecentTracks();
+            var tweets = GetRecentTweets();
+            model.RecentTracks.AddRange(tracks.Take(5));
+            model.Tweets.AddRange(tweets.Take(5));
             return View(model);
         }
 
@@ -51,6 +55,29 @@ namespace DotNetTestSite.Controllers
                 }
             }
             return recentTracks;
+        }
+
+        private List<TweetItem> GetRecentTweets()
+        {
+            List<TweetItem> recentTweets = new List<TweetItem>();
+            using (var client = new HttpClient())
+            {
+                //HTTP GET
+                client.BaseAddress = new Uri("https://localhost:44309/");
+                var responseTask = client.GetAsync("tweets/recent");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsStringAsync();
+                    readTask.Wait();
+
+                    var readTaskResult = readTask.Result;
+                    recentTweets.AddRange(Newtonsoft.Json.JsonConvert.DeserializeObject<List<TweetItem>>(readTaskResult));
+                }
+            }
+            return recentTweets;
         }
     }
 }

@@ -42,46 +42,40 @@
     <div class="row work boxShadow">
         <div class="row m-2">
             <div class="col-6">
-                <h5>My Tweets</h5>
-                <div id="myTweets">
-                    @foreach (var tweet in Model.Tweets)
-                    {
-                    <div class="tweet boxShadow">
-                        @(tweet.Text)
-
-                        @if (tweet.UrlAttached)
+                <div class="p-2">
+                    <h5>My Tweets</h5>
+                    <div id="myTweets" class="row ml-2">
+                        @foreach (var tweet in Model.Tweets)
                         {
-                            <a href="@(tweet.UrlAttached)">@(tweet.UrlAttached)</a>
-                        }
-                        <!--
-                            <div data-ng-repeat="y in x.extended_entities.media">
-                              <img src="{{y.media_url}}" alt="{{y.media_url}}"/>
+                            <div class="tweetWrapper boxShadow row col-11">
+                                <p>@(tweet.Text)</p>
+                                <p>Posted on @(tweet.Published)</p>
                             </div>
-                        -->
-                        <p>Posted on @(tweet.CreatedAt)</p>
+                        }
                     </div>
-                    }
                 </div>
             </div>
             <div class="col-6">
-                <h5>My Recent Tracks</h5>
-                <div id="myTracks" class="row">
-                    @foreach (var track in Model.RecentTracks)
-                    {
-                        if (!string.IsNullOrWhiteSpace(track.Name))
+                <div class="p-2">
+                    <h5>My Recent Tracks</h5>
+                    <div id="myTracks" class="row">
+                        @foreach (var track in Model.RecentTracks)
                         {
-                            <div class="recentTrackWrapper row col-12 boxShadow">
-                                <div class="col-3">
-                                    <img src="@(track.Image)" alt="TrackImage" onerror="this.src='../images/404.png'" class="recentTrackImage" />
+                            if (!string.IsNullOrWhiteSpace(track.Name))
+                            {
+                                <div class="recentTrackWrapper boxShadow row col-12">
+                                    <div class="col-3">
+                                        <img src="@(track.Image)" alt="TrackImage" onerror="this.src='../images/404.png'" class="recentTrackImage" />
+                                    </div>
+                                    <div class="col-9">
+                                        <p>Track Name: @(track.Name)</p>
+                                        <p>Artist: @(track.Artist)</p>
+                                        <p>Album Name: @(track.Album)</p>
+                                    </div>
                                 </div>
-                                <div class="col-9">
-                                    <p>Track Name: @(track.Name)</p>
-                                    <p>Artist: @(track.Artist)</p>
-                                    <p>Album Name: @(track.Album)</p>
-                                </div>
-                            </div>
+                            }
                         }
-                    }
+                    </div>
                 </div>
             </div>
         </div>

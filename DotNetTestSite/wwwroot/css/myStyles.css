@@ -78,7 +78,7 @@
     background: #FFFFFF;
 }
 
-.recentTrackWrapper, .topAlbumWrapper, .topTrackWrapper, .topArtistWrapper {
+.recentTrackWrapper, .topAlbumWrapper, .topTrackWrapper, .topArtistWrapper, .tweetWrapper {
     background-color: #00cccc;
     border-radius: 5px;
     padding: 5px;
