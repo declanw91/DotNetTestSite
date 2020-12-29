@@ -6,7 +6,7 @@
     <div id="twitterApp" class="work row boxShadow">
         <h3>Twitter Display</h3>
         <p>
-            A small razor project that connects to the Twitter API and returns my tweets. There is a API controller that makes a authorised request to twitter with a access token which fetches
+            A small asp net core/razor project that connects to the Twitter API and returns my tweets. There is a API controller that makes a authorised request to twitter with a access token which fetches
             tweets under my account. The front end then uses razor to render the tweets on the screen as well as any images that are attached to the tweet (where applicable). It does need a few updates as it currently uses the date in the format that twitter returns it 
             but I would like to change this to be in the normal date/month/year hour:minute style format similar to the date style on my blog page.
         </p>
@@ -47,18 +47,6 @@
             update it as I learn more about the framework.
         </p>
         <p>Viewable here: <a asp-area="" asp-controller="VideoGameQuiz" asp-action="Index">Video Game Quiz</a></p>
-    </div>
-    <div id="userManager" class="work row boxShadow">
-        <h3>User Management Tool</h3>
-        <p>
-            This started off as a technical exercise for a interview that
-            I took as a way to learn more bootstrap and angular. It is a basic user managerment system with
-            the ability to add, delete and update user data. It needs to be expanded to check for duplicate users.
-            It uses a mix of jQuery, Angular and boostrap on the front end and the API that modifies the data is written in PHP.
-            The PHP section just uses a file to store the user data in a json file. It may eventually be updated to use a database
-            for storing user data as this would be better.
-        </p>
-        <p>Viewable here: <a>User Manger</a></p>
     </div>
     <div id="welding" class="work row boxShadow">
         <h3> Welding Course Enrolment </h3>
@@ -108,14 +96,5 @@
             research the plugin and the available options to set it up for each client. The slideshow is showing a few random xbox screenshots.
         </p>
         <p>Viewable here: <a asp-area="" asp-controller="PictureCarousel" asp-action="Index">Picture Slideshow</a></p>
-    </div>
-    <div id="wineStoreAngular" class="work row boxShadow">
-        <h3>Wine Store Angular</h3>
-        <p>
-            This is an angular version of my original php based wine store (see the example below this one to see the original). It still uses some PHP and MySQL
-            to fetch the wine data from the database and then convert it into json. The angular part takes over from there as the site uses angular to display
-            the data and control all of the requried functionality needed to make a newer, more shiny version of my store.
-        </p>
-        <p>Viewable here: <a>Wine Store Angular</a></p>
     </div>
 </div>
