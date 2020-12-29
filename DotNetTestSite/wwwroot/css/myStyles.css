@@ -6,6 +6,10 @@
     max-height: 420px;
 }
 
+.workLinks {
+    min-height: 25px;
+}
+
 .workLinks li {
     width: 50%;
     float: left;
@@ -87,5 +91,9 @@
 }
 
 .recentTrackImage {
+    max-width: 100%;
+}
+
+.tweetImage {
     max-width: 100%;
 }

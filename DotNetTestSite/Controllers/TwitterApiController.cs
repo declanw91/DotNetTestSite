@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DotNetTestSite.Controllers
@@ -17,7 +18,7 @@ namespace DotNetTestSite.Controllers
 		[HttpGet("tweets/recent")]
 		public async Task<ActionResult<string>> GetTweetsAsync(string accessToken = null)
 		{
-			var url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=declanw47&count=50";
+			var url = $"https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={AppConfig.TwitterUsername}&count=50";
 			var myTweets = new List<TweetItem>();
 			if (accessToken == null)
 			{
@@ -35,9 +36,21 @@ namespace DotNetTestSite.Controllers
 					foreach(var tweet in tweetArray)
                     {
 						var text = tweet.SelectToken("text").ToString();
+						var cleanText = Regex.Replace(text, @"http[^\s]+", "");
 						var date = tweet.SelectToken("created_at").ToString();
-						myTweets.Add(new TweetItem { Text = text, Published = date.Split("+")[0]});
-                    }
+						var tweetItem = new TweetItem { Text = cleanText, Published = date.Split("+")[0] };
+						var extended = tweet.SelectToken("extended_entities");
+						if (extended != null)
+						{
+							var media = extended.SelectToken("media").ToString();
+							if(media != null)
+                            {
+								var mediaArray = JArray.Parse(media);
+								tweetItem.Attachments = mediaArray.ToObject<List<object>>();
+							}
+						}
+						myTweets.Add(tweetItem);
+					}
 				}
 			}
 			var resp = Newtonsoft.Json.JsonConvert.SerializeObject(myTweets);

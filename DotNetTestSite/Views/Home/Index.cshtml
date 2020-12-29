@@ -47,10 +47,20 @@
                     <div id="myTweets" class="row ml-2">
                         @foreach (var tweet in Model.Tweets)
                         {
-                            <div class="tweetWrapper boxShadow row col-11">
-                                <p>@(tweet.Text)</p>
-                                <p>Posted on @(tweet.Published)</p>
-                            </div>
+                        <div class="tweetWrapper boxShadow row col-11">
+                            <p class="tweetText">@(tweet.Text)</p>
+                            @if (tweet.Attachments != null)
+                            {
+                                foreach (var item in tweet.Attachments)
+                                {
+                                    <p>
+                                        <img class="tweetImage" src="@(item.media_url_https)" alt="@(item.media_url_https)" />
+                                    </p>
+                                }
+                            }
+
+                            <p class="tweetDate">Posted on @(tweet.Published)</p>
+                        </div>
                         }
                     </div>
                 </div>

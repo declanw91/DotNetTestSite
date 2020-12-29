@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
 namespace DotNetTestSite.Models
@@ -7,6 +7,6 @@ namespace DotNetTestSite.Models
     {
         public string Text { get; set; }
         public string Published { get; set; }
-        public List<string> Attachments { get; set; }
+        public List<object> Attachments { get; set; }
     }
 }
