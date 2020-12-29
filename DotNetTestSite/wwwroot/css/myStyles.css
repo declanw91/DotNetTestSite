@@ -97,3 +97,12 @@
 .tweetImage {
     max-width: 100%;
 }
+
+#twitterWrapper {
+    background: #FFFFFF;
+    border-radius: 5px;
+}
+
+#twitterWrapper h5 {
+    text-align: center;
+}

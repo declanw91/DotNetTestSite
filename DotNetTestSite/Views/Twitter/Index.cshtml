@@ -1,0 +1,23 @@
+﻿@model IEnumerable<TweetItem>
+<div id="twitterWrapper" class="container-fluid p-3">
+    <h5>My Tweets</h5>
+    <div id="tweets">
+        @foreach (var tweet in Model)
+        {
+            <div class="tweetWrapper boxShadow">
+                <p class="tweetText">@(tweet.Text)</p>
+                @if (tweet.Attachments != null)
+                {
+                    foreach (dynamic item in tweet.Attachments)
+                    {
+                        <p>
+                            <img class="tweetImage" src="@(item.media_url_https)" alt="@(item.media_url_https)" />
+                        </p>
+                    }
+                }
+
+                <p class="tweetDate">Posted on @(tweet.Published)</p>
+            </div>
+        }
+    </div>
+</div>

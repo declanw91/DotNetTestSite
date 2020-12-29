@@ -3,13 +3,22 @@
 }
 <div class="container-fluid">
     <h2 class="work boxShadow workTitle">My Work</h2>
+    <div id="twitterApp" class="work row boxShadow">
+        <h3>Twitter Display</h3>
+        <p>
+            A small razor project that connects to the Twitter API and returns my tweets. There is a API controller that makes a authorised request to twitter with a access token which fetches
+            tweets under my account. The front end then uses razor to render the tweets on the screen as well as any images that are attached to the tweet (where applicable). It does need a few updates as it currently uses the date in the format that twitter returns it 
+            but I would like to change this to be in the normal date/month/year hour:minute style format similar to the date style on my blog page.
+        </p>
+        <p>Viewable here: <a asp-area="" asp-controller="Twitter" asp-action="Index">My Tweets</a></p>
+    </div>
     <div id="vueWineStore" class="work row boxShadow">
         <h3>Vue Wine Store</h3>
         <p>
             A vuejs project to help me learn vuex, vue router and using state as well as using components.
-            The project is a simple wine store that allows users to browse the wines either by colour, region or the full range. 
-            It also has a cart feature that currently just allows users to add to the cart and view their cart to see what items they have added. 
-            The cart feature will eventually be expanded. 
+            The project is a simple wine store that allows users to browse the wines either by colour, region or the full range.
+            It also has a cart feature that currently just allows users to add to the cart and view their cart to see what items they have added.
+            The cart feature will eventually be expanded.
             The styling mainly comes from bootstrap and it also uses font awesome for some icons as I do not currently have a lot of images for the site.
             This was my first real VueJs project after I learnt the basics and it is based on <a href="https://www.youtube.com/watch?v=4deVCNJq3qc&ab_channel=freeCodeCamp.org">this tutorial</a>.
         </p>
