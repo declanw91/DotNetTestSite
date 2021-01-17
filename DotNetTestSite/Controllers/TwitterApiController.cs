@@ -37,6 +37,12 @@ namespace DotNetTestSite.Controllers
                     {
 						var text = tweet.SelectToken("text").ToString();
 						var cleanText = Regex.Replace(text, @"http[^\s]+", "");
+						var hashtag = Regex.Match(text, @"#[a-zA-Z]+");
+						if(hashtag.Success)
+                        {
+							var hashtagLink = "<a href=\"https://twitter.com/hashtag/" + hashtag.Value.Replace("#","") + "\">" + hashtag.Value + "</a>";
+							cleanText = cleanText.Replace(hashtag.Value, hashtagLink);
+                        }
 						var date = tweet.SelectToken("created_at").ToString();
 						var tweetItem = new TweetItem { Text = cleanText, Published = date.Split("+")[0] };
 						var extended = tweet.SelectToken("extended_entities");

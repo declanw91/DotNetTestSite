@@ -5,7 +5,7 @@
         @foreach (var tweet in Model)
         {
             <div class="tweetWrapper boxShadow">
-                <p class="tweetText">@(tweet.Text)</p>
+                <p class="tweetText">@Html.Raw(tweet.Text)</p>
                 @if (tweet.Attachments != null)
                 {
                     foreach (dynamic item in tweet.Attachments)

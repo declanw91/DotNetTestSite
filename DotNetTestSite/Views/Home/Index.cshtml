@@ -48,7 +48,7 @@
                         @foreach (var tweet in Model.Tweets)
                         {
                         <div class="tweetWrapper boxShadow row col-11">
-                            <p class="tweetText">@(tweet.Text)</p>
+                            <p class="tweetText">@Html.Raw(tweet.Text)</p>
                             @if (tweet.Attachments != null)
                             {
                                 foreach (var item in tweet.Attachments)
