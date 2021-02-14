@@ -1,38 +1,23 @@
 ﻿using DotNetTestSite.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace DotNetTestSite.Controllers
 {
     public class TwitterController : Controller
     {
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            var tweets = GetRecentTweets();
+            var tweets = await GetRecentTweets();
             return View(tweets);
         }
-        private List<TweetItem> GetRecentTweets()
+        private async Task<List<TweetItem>> GetRecentTweets()
         {
             List<TweetItem> recentTweets = new List<TweetItem>();
-            using (var client = new HttpClient())
-            {
-                //HTTP GET
-                client.BaseAddress = new Uri("https://localhost:44309/");
-                var responseTask = client.GetAsync("tweets/recent");
-                responseTask.Wait();
-
-                var result = responseTask.Result;
-                if (result.IsSuccessStatusCode)
-                {
-                    var readTask = result.Content.ReadAsStringAsync();
-                    readTask.Wait();
-
-                    var readTaskResult = readTask.Result;
-                    recentTweets.AddRange(Newtonsoft.Json.JsonConvert.DeserializeObject<List<TweetItem>>(readTaskResult));
-                }
-            }
+            var tweetController = new TwitterApiController();
+            var tweets = await tweetController.GetTweetsAsync();
+            recentTweets.AddRange(Newtonsoft.Json.JsonConvert.DeserializeObject<List<TweetItem>>(tweets));
             return recentTweets;
         }
     }

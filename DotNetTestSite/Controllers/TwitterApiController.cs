@@ -1,6 +1,5 @@
 ﻿using DotNetTestSite.Config;
 using DotNetTestSite.Models;
-using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -12,11 +11,9 @@ using System.Threading.Tasks;
 
 namespace DotNetTestSite.Controllers
 {
-    [ApiController]
-	public class TwitterApiController : ControllerBase
+    public class TwitterApiController
 	{
-		[HttpGet("tweets/recent")]
-		public async Task<ActionResult<string>> GetTweetsAsync(string accessToken = null)
+		public async Task<string> GetTweetsAsync(string accessToken = null)
 		{
 			var url = $"https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={AppConfig.TwitterUsername}&count=50";
 			var myTweets = new List<TweetItem>();
@@ -60,7 +57,7 @@ namespace DotNetTestSite.Controllers
 				}
 			}
 			var resp = Newtonsoft.Json.JsonConvert.SerializeObject(myTweets);
-			return Ok(resp);
+			return resp;
 		}
 		private async Task<string> GetAccessToken()
 		{
