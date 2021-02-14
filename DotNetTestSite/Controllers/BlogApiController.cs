@@ -6,21 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace DotNetTestSite.Controllers
 {
-    [ApiController]
-    public class BlogApiController : ControllerBase
+    public class BlogApiController : IBlogApiController
     {
-        [HttpGet("blog/all")]
-        public ActionResult<string> GetAllBlogPosts()
+        public async Task<string> GetAllBlogPosts()
         {
             var url = "https://www.blogger.com/feeds/4886411145150219450/posts/default";
             List<BlogPost> blogPosts = new List<BlogPost>();
             using (var client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
                 HttpResponseMessage response = client.GetAsync(url).Result;
 
                 if (response.StatusCode == HttpStatusCode.OK)
@@ -43,7 +41,7 @@ namespace DotNetTestSite.Controllers
 
             }
             var resp = Newtonsoft.Json.JsonConvert.SerializeObject(blogPosts);
-            return Ok(resp);
+            return resp;
         }
     }
 }

@@ -22,6 +22,7 @@ namespace DotNetTestSite
             services.AddControllersWithViews();
             services.AddSingleton<ITwitterApiController,TwitterApiController>();
             services.AddSingleton<ILastFmApiController, LastFmApiController>();
+            services.AddSingleton<IBlogApiController, BlogApiController>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,40 +1,32 @@
 ﻿using DotNetTestSite.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace DotNetTestSite.Controllers
 {
     public class BlogController : Controller
     {
-        public IActionResult Index()
+        private readonly IBlogApiController _blogController;
+
+        public BlogController(IBlogApiController blogController)
         {
-            List<BlogPost> blogPosts = GetBlogPosts();
-            return View(blogPosts);
+            _blogController = blogController;
         }
-        private List<BlogPost> GetBlogPosts()
+
+        public async System.Threading.Tasks.Task<IActionResult> IndexAsync()
+        {
+            var model = new BlogViewModel();
+            List<BlogPost> blogPosts = await GetBlogPosts();
+            model.BlogPosts.AddRange(blogPosts);
+            return View(model);
+        }
+
+        private async Task<List<BlogPost>> GetBlogPosts()
         {
             List<BlogPost> blogPosts = new List<BlogPost>();
-
-            using (var client = new HttpClient())
-            {
-                //HTTP GET
-                client.BaseAddress = new Uri("https://localhost:44309/");
-                var responseTask = client.GetAsync("blog/all");
-                responseTask.Wait();
-
-                var result = responseTask.Result;
-                if (result.IsSuccessStatusCode)
-                {
-                    var readTask = result.Content.ReadAsStringAsync();
-                    readTask.Wait();
-
-                    var readTaskResult = readTask.Result;
-                    blogPosts.AddRange(Newtonsoft.Json.JsonConvert.DeserializeObject<List<BlogPost>>(readTaskResult));
-                }
-            }
-
+            var blogs = await _blogController.GetAllBlogPosts();
+            blogPosts.AddRange(Newtonsoft.Json.JsonConvert.DeserializeObject<List<BlogPost>>(blogs));
             return blogPosts;
         }
     }

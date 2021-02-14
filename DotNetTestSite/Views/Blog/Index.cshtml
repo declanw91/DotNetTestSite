@@ -1,11 +1,10 @@
-﻿@model IEnumerable<BlogPost>
-@{
+﻿@{
     ViewData["Title"] = "Blog";
 }
 
 <div id="BlogPostsWrapper" class="container-fluid">
     <div id="blogPosts">
-        @foreach (var blog in Model)
+        @foreach (var blog in Model.BlogPosts)
         {
             <div class="blogPost row">
                 <div class="blogTitle container">
