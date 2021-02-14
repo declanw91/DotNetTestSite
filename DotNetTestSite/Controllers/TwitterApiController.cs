@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace DotNetTestSite.Controllers
 {
-    public class TwitterApiController
+    public class TwitterApiController : ITwitterApiController
 	{
 		public async Task<string> GetTweetsAsync(string accessToken = null)
 		{
-			var url = $"https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={AppConfig.TwitterUsername}&count=50";
+			var url = $"https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={AppConfig.TwitterUsername}&count=50&tweet_mode=extended";
 			var myTweets = new List<TweetItem>();
 			if (accessToken == null)
 			{
@@ -32,7 +32,7 @@ namespace DotNetTestSite.Controllers
 					var tweetArray = JArray.Parse(tweets);
 					foreach(var tweet in tweetArray)
                     {
-						var text = tweet.SelectToken("text").ToString();
+						var text = tweet.SelectToken("full_text").ToString();
 						var cleanText = Regex.Replace(text, @"http[^\s]+", "");
 						var hashtag = Regex.Match(text, @"#[a-zA-Z]+");
 						if(hashtag.Success)

@@ -13,18 +13,22 @@ namespace DotNetTestSite.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ITwitterApiController _twitterController;
+        private readonly ILastFmApiController _trackController;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ITwitterApiController tweetController, ILastFmApiController trackController)
         {
             _logger = logger;
+            _twitterController = tweetController;
+            _trackController = trackController;
         }
 
         public async Task<IActionResult> IndexAsync()
         {
             var model = new HomeViewModel();
-            //var tracks = GetRecentTracks();
+            var tracks = await GetRecentTracks();
             var tweets = await GetRecentTweets();
-            //model.RecentTracks.AddRange(tracks.Take(5));
+            model.RecentTracks.AddRange(tracks.Take(5));
             model.Tweets.AddRange(tweets.Take(5));
             return View(model);
         }
@@ -35,34 +39,18 @@ namespace DotNetTestSite.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        private List<TrackItem> GetRecentTracks()
+        private async Task<List<TrackItem>> GetRecentTracks()
         {
             List<TrackItem> recentTracks = new List<TrackItem>();
-            using (var client = new HttpClient())
-            {
-                //HTTP GET
-                client.BaseAddress = new Uri("https://localhost:44309/");
-                var responseTask = client.GetAsync("tracks/recent");
-                responseTask.Wait();
-
-                var result = responseTask.Result;
-                if (result.IsSuccessStatusCode)
-                {
-                    var readTask = result.Content.ReadAsStringAsync();
-                    readTask.Wait();
-
-                    var readTaskResult = readTask.Result;
-                    recentTracks.AddRange(Newtonsoft.Json.JsonConvert.DeserializeObject<List<TrackItem>>(readTaskResult));
-                }
-            }
+            var tracks = await _trackController.GetRecentTracks();
+            recentTracks.AddRange(Newtonsoft.Json.JsonConvert.DeserializeObject<List<TrackItem>>(tracks));
             return recentTracks;
         }
 
         private async Task<List<TweetItem>> GetRecentTweets()
         {
             List<TweetItem> recentTweets = new List<TweetItem>();
-            var tweetController = new TwitterApiController();
-            var tweets = await tweetController.GetTweetsAsync();
+            var tweets = await _twitterController.GetTweetsAsync();
             recentTweets.AddRange(Newtonsoft.Json.JsonConvert.DeserializeObject<List<TweetItem>>(tweets));
             return recentTweets;
         }
