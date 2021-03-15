@@ -34,7 +34,7 @@ namespace DotNetTestSite.Controllers
                     {
 						var text = tweet.SelectToken("full_text").ToString();
 						var cleanText = Regex.Replace(text, @"http[^\s]+", "");
-						var hashtag = Regex.Match(text, @"#[a-zA-Z]+");
+						var hashtag = Regex.Match(text, @"#[a-zA-Z0-9]+");
 						if(hashtag.Success)
                         {
 							var hashtagLink = "<a href=\"https://twitter.com/hashtag/" + hashtag.Value.Replace("#","") + "\">" + hashtag.Value + "</a>";
